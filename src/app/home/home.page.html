@@ -1,20 +1,817 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      <b>Grid</b>
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true">
+<!-- <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
+</ion-content> -->
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
+  <!-- <div id="container">
+    <strong>Ready to create an app????????</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  </div> -->
+
+<!-- <ion-content>
+  <ion-grid style="border: 1px solid #000;">
+
+    <ion-row style="border: 1px solid #000;">
+      <ion-col style="border: 1px solid #000;">
+        <div style="border: 1px solid #000;">
+          1 of 3
+        </div>
+      </ion-col>
+
+      <ion-col style="border: 1px solid #000;">
+        <div>
+          Variable width content
+        </div>
+      </ion-col>
+
+      <ion-col style="border: 1px solid #000;">
+        <div>
+          3 of 3
+        </div>
+      </ion-col>
+
+      <ion-col style="border: 1px solid #000;">
+        <div>
+          3 of 3
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col style="border: 1px solid #000;">
+        <div>
+          1 of 4
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          2 of 4
+        </div>
+      </ion-col>
+      <ion-col size="auto" style="border: 1px solid #000;">
+        <div>
+          <ion-input placeholder="Variable width input"></ion-input>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          4 of 4
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->
+
+<!-- <ion-content>
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">Service Provider Details</h1>
+</ion-header-bar>
+<ion-content>
+    <div class="row header">
+      <div class="col">Utility Company Name</div>
+      <div class="col">Service Code</div>
+      <div class="col">Pay Limit</div>
+      <div class="col">Account Number to Use</div>
+      <div class="col"></div>
+    </div>
+    <div class="row" ng-repeat="data in ctrl.data">
+      <div class="col">{{data.name}}</div>
+      <div class="col">{{data.code}}</div>
+      <div class="col">LK {{data.limit}}</div>
+      <div class="col">{{data.account}}</div>
+      <div class="col"><button class="button" ng-click="ctrl.add($index)">Add</button></div>
+    </div>
 </ion-content>
+</ion-content> -->
+
+
+
+
+
+
+
+
+  <ion-content *ngIf="data.type == 'radio' ">
+
+  <div class="grid-outer">
+
+    <ion-row>
+
+      <ion-col col-4 style="border: groove;">
+        <ion-label></ion-label>
+      </ion-col>
+
+      <ion-col col-4 style="border: groove;" *ngFor="let x of data.columns">
+        <ion-label>{{x}}</ion-label>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-radio-group value="abc">
+
+      <ion-row *ngFor="let c of data.rows; let i = index">
+
+        <ion-col col-4 style="border: groove;">
+          <ion-label class="rowhead"><span class="rowheadtext">{{data.rows[i]}}</span></ion-label>
+        </ion-col>
+
+        <ion-col col-4 style="border: groove;" *ngFor="let x of data.columns">
+          <ion-item>
+            <ion-radio></ion-radio>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+    </ion-radio-group>
+
+  </div>
+
+  </ion-content>
+
+  <ion-content *ngIf="data.type == 'checkbox' ">
+
+    <div class="grid-outer">
+    
+      <div class="question-text">{{data.questiontext}}</div>
+
+      <ion-row>
+    
+        <ion-col col-4 style="border: groove;">
+          <ion-label></ion-label>
+        </ion-col>
+    
+        <ion-col col-4 style="border: groove;" *ngFor="let x of data.columns">
+          <ion-label>{{x}}</ion-label>
+        </ion-col>
+    
+      </ion-row>
+    
+        <ion-row *ngFor="let c of data.rows; let i = index">
+    
+          <ion-col col-4 style="border: groove;">
+            <ion-label>{{data.rows[i]}}</ion-label>
+          </ion-col>
+    
+          <ion-col col-4 style="border: groove;" *ngFor="let x of data.columns">
+            <ion-item>
+              <ion-checkbox slot="start"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+    
+        </ion-row>
+    
+    </div>
+    
+    </ion-content>
+
+  <ion-content *ngIf="data.type == 'dropdown' ">
+
+    <div class="grid-outer">
+    
+      <div class="question-text">{{data.questiontext}}</div>
+
+      <ion-row>
+    
+        <ion-col col-4 style="border: groove;">
+          <ion-label></ion-label>
+        </ion-col>
+    
+        <ion-col col-4 style="border: groove;" *ngFor="let x of data.columns">
+          <ion-label>{{x}}</ion-label>
+        </ion-col>
+    
+      </ion-row>
+    
+        <ion-row *ngFor="let c of data.rows; let i = index">
+    
+          <ion-col col-4 style="border: groove;">
+            <ion-label>{{data.rows[i]}}</ion-label>
+          </ion-col>
+    
+          <!-- <ion-col col-4 style="border: groove;" *ngFor="let x of data.columns">
+            <ion-item>
+              <ion-label>Select</ion-label>
+              <ion-select interface="popover">
+                <ion-select-option value="nes">Helicopter</ion-select-option>
+                <ion-select-option value="n64">Aeroplane</ion-select-option>
+                <ion-select-option value="ps">Jet</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col> -->
+
+          <ion-col col-4 style="border: groove;" *ngFor="let x of data.columns">
+            <ion-item>
+              <ion-select interface="popover">
+                <ion-select-option *ngFor="let opt of data.options">{{opt}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+    
+        </ion-row>
+    
+    </div>
+    
+  </ion-content>
+
+  <ion-content *ngIf="data.type == 'grid-radio' && data.direction == 'rowwise' ">
+
+    <div class="grid-outer">
+
+      <div class="question-text">{{data.questiontext}}</div>
+    
+      <ion-row>
+    
+        <ion-col col-4 class="columnhead">
+          <ion-label></ion-label>
+        </ion-col>
+    
+        <ion-col col-4 *ngFor="let x of data.columns" class="columnhead">
+          <ion-label>{{x}}</ion-label>
+        </ion-col>
+    
+      </ion-row>
+    
+        <ion-row *ngFor="let c of data.rows; let i = index">
+    
+          <ion-col col-4 class="rowhead">
+            <ion-label><span class="rowheadtext">{{data.rows[i]}}</span></ion-label>
+          </ion-col>
+    
+          <ion-col col-4 *ngFor="let x of data.columns">
+              <label class="grid-radio-label"><input type="radio" name={{i}}></label>
+          </ion-col>
+    
+        </ion-row>
+    
+    </div>
+    
+    </ion-content>
+
+  <ion-content *ngIf="data.type == 'grid-radio' && data.direction == 'columnwise' ">
+
+    <div class="grid-outer">
+    
+      <div class="question-text">{{data.questiontext}}</div>
+
+      <ion-row>
+    
+        <ion-col col-4 class="columnhead">
+          <ion-label></ion-label>
+        </ion-col>
+    
+        <ion-col col-4 *ngFor="let x of data.columns"  class="columnhead">
+          <ion-label>{{x}}</ion-label>
+        </ion-col>
+    
+      </ion-row>
+    
+        <ion-row *ngFor="let s of data.rows; let i = index">
+    
+          <ion-col col-4  class="rowhead">
+            <ion-label><span class="rowheadtext">{{data.rows[i]}}</span></ion-label>
+          </ion-col>
+    
+          <ion-col col-4 *ngFor="let t of data.columns">
+              <label class="grid-radio-label"><input type="radio" name={{t}}></label>
+          </ion-col>
+    
+        </ion-row>
+    
+    </div>
+    
+    </ion-content>
+
+  <ion-content *ngIf="data.type == 'grid-checkbox' && ( data.direction == 'rowwise' || data.direction == 'columnwise' ) ">
+
+    <div class="grid-outer">
+
+      <div class="question-text">{{data.questiontext}}</div>
+    
+      <ion-row>
+    
+        <ion-col col-4 class="columnhead">
+          <ion-label></ion-label>
+        </ion-col>
+    
+        <ion-col col-4 *ngFor="let x of data.columns" class="columnhead">
+          <ion-label>{{x}}</ion-label>
+        </ion-col>
+    
+      </ion-row>
+    
+    
+        <ion-row *ngFor="let c of data.rows; let i = index">
+    
+          <ion-col col-4 class="rowhead">
+            <ion-label><span class="rowheadtext">{{data.rows[i]}}</span></ion-label>
+          </ion-col>
+    
+          <ion-col col-4 *ngFor="let x of data.columns">
+              <label class="grid-radio-label"><input type="checkbox" name={{i}}></label>
+          </ion-col>
+    
+        </ion-row>
+    
+    </div>
+    
+    </ion-content>
+
+  <ion-content *ngIf="data.type == 'grid-custom' && data.direction == 'rowwise' ">
+
+    <div class="grid-outer">
+
+      <div class="question-text">{{data.questiontext}}</div>
+    
+      <ion-row>
+    
+        <ion-col col-4 class="columnhead">
+          <ion-label></ion-label>
+        </ion-col>
+    
+        <ion-col col-4 *ngFor="let x of data.columns" class="columnhead">
+          <ion-label>{{x}}</ion-label>
+        </ion-col>
+    
+      </ion-row>
+    
+    
+        <ion-row *ngFor="let c of data.rows; let i = index">
+    
+          <ion-col col-4 class="rowhead">
+            <ion-label><span class="rowheadtext">{{c.rowtitle}}</span></ion-label>
+          </ion-col>
+    
+          <ion-col col-4 *ngFor="let x of data.columns">
+              <label *ngIf="c.rowtype == 'checkbox' "><input type="checkbox" name={{i}}></label>
+              <label *ngIf="c.rowtype == 'radio' "><input type="radio" name={{i}}></label>
+              <label *ngIf="c.rowtype == 'text' ">
+                <input type="text" name={{i}} style="max-width: 90px;">
+              </label>
+              <label *ngIf="c.rowtype == 'number' ">
+                <input type="number" name={{i}} style="max-width: 90px;">
+              </label>
+              <label *ngIf="c.rowtype == 'dropdown' ">
+                <ion-select interface="popover">
+                  <ion-select-option *ngFor="let opt of c.options">{{opt}}</ion-select-option>
+                </ion-select>
+              </label>
+          </ion-col>
+    
+        </ion-row>
+    
+    </div>
+    
+    </ion-content>
+
+  <ion-content *ngIf="data.type == 'grid-custom' && data.direction == 'columnwise' ">
+
+    <div class="grid-outer">
+
+      <div class="question-text">{{data.questiontext}}</div>
+    
+      <ion-row>
+    
+        <ion-col col-4 class="columnhead">
+          <ion-label></ion-label>
+        </ion-col>
+    
+        <ion-col col-4 *ngFor="let x of data.columns"  class="columnhead">
+          <ion-label>{{x.coltitle}}</ion-label>
+        </ion-col>
+    
+      </ion-row>
+    
+    
+        <ion-row *ngFor="let s of data.rows; let i = index">
+    
+          <ion-col col-4  class="rowhead">
+            <ion-label><span class="rowheadtext">{{data.rows[i]}}</span></ion-label>
+          </ion-col>
+    
+          <ion-col col-4 *ngFor="let t of data.columns">
+              <label *ngIf="t.coltype == 'checkbox' "><input type="checkbox" name={{t}}></label>
+              <label *ngIf="t.coltype == 'radio' "><input type="radio" name={{t}}></label>
+              <label *ngIf="t.coltype == 'text' ">
+                <input type="text" name={{t}} style="max-width: 90px;">
+              </label>
+              <label *ngIf="t.coltype == 'number' ">
+                <input type="number" name={{t}} style="max-width: 90px;">
+              </label>
+              <label *ngIf="t.coltype == 'dropdown' ">
+                <ion-select interface="popover">
+                  <ion-select-option *ngFor="let opt of t.options">{{opt}}</ion-select-option>
+                </ion-select>
+              </label>
+          </ion-col>
+    
+        </ion-row>
+    
+    </div>
+    
+    </ion-content>
+
+  <ion-content *ngIf="data.type == 'thank-you' ">
+
+    <div class="grid-outer">
+    
+      <!-- <ion-row> -->
+    
+        <div col-4 class="thank-box">
+          <span class="thank-text">Survey Complete</span><ion-icon class="shield-icon" name="shield-checkmark"></ion-icon>
+          <br/>
+          <br>
+          <h3>Thank you for completing the survey.</h3>
+        </div>
+    
+      <!-- </ion-row> -->
+    
+    </div>
+    
+    </ion-content>
+
+
+  
+
+
+    <button slot="end" color="medium" class="next-middle" (click)="nextQuestion()"><ion-icon name="chevron-forward-circle"></ion-icon></button>
+
+    <button slot="end" color="medium" class="back-middle" (click)="previousQuestion()"><ion-icon name="chevron-back-circle"></ion-icon></button>
+
+
+
+    
+
+    <!-- <ion-content *ngFor="let q of data.questions">
+
+      <div class="grid-outer" *ngIf="q.type == 'thank-you' ">
+
+        <ion-row>
+      
+          <ion-col col-4 style="border: groove;">
+            <ion-label>Thank you</ion-label>
+          </ion-col>
+      
+        </ion-row>
+      
+      </div>
+
+      <div class="grid-outer" *ngIf="q.type == 'grid-radio' ">
+
+        <ion-row>
+      
+          <ion-col col-4 style="border: groove;">
+            <ion-label>Thank you</ion-label>
+          </ion-col>
+      
+          <ion-col col-4 style="border: groove;" *ngFor="let x of q.columns">
+            <ion-label>{{x}}</ion-label>
+          </ion-col>
+      
+        </ion-row>
+      
+        <ion-radio-group value="abc">
+      
+          <ion-row *ngFor="let c of q.rows; let i = index">
+      
+            <ion-col col-4 style="border: groove;">
+              <ion-label class="rowhead"><span class="rowheadtext">{{data.rows[i]}}</span></ion-label>
+            </ion-col>
+      
+            <ion-col col-4 style="border: groove;" *ngFor="let x of q.columns">
+              <ion-item>
+                <ion-radio></ion-radio>
+              </ion-item>
+            </ion-col>
+      
+          </ion-row>
+        </ion-radio-group>
+      
+      </div>
+
+
+      <div class="grid-outer" *ngIf="q.type == 'dropdown' ">
+    
+        <ion-row>
+      
+          <ion-col col-4 style="border: groove;">
+            <ion-label></ion-label>
+          </ion-col>
+      
+          <ion-col col-4 style="border: groove;" *ngFor="let x of q.columns">
+            <ion-label>{{x}}</ion-label>
+          </ion-col>
+      
+        </ion-row>
+      
+          <ion-row *ngFor="let c of q.rows; let i = index">
+      
+            <ion-col col-4 style="border: groove;">
+              <ion-label>{{data.rows[i]}}</ion-label>
+            </ion-col>
+      
+            <ion-col col-4 style="border: groove;" *ngFor="let x of q.columns">
+              <ion-item>
+                <ion-label>Select</ion-label>
+                <ion-select interface="popover">
+                  <ion-select-option value="nes">Helicopter</ion-select-option>
+                  <ion-select-option value="n64">Aeroplane</ion-select-option>
+                  <ion-select-option value="ps">Jet</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+      
+          </ion-row>
+      
+      </div>
+
+      <div class="grid-outer" *ngIf="q.type == 'grid-radio' && q.direction == 'rowwise' ">
+    
+        <ion-row>
+      
+          <ion-col col-4 class="columnhead">
+            <ion-label></ion-label>
+          </ion-col>
+      
+          <ion-col col-4 *ngFor="let x of q.columns" class="columnhead">
+            <ion-label>{{x}}</ion-label>
+          </ion-col>
+      
+        </ion-row>
+      
+      
+          <ion-row *ngFor="let c of q.rows; let i = index">
+      
+            <ion-col col-4 class="rowhead">
+              <ion-label><span class="rowheadtext">{{data.rows[i]}}</span></ion-label>
+            </ion-col>
+      
+            <ion-col col-4 *ngFor="let x of q.columns">
+                <label class="grid-radio-label"><input type="radio" name={{i}}></label>
+            </ion-col>
+      
+          </ion-row>
+      
+      </div>
+
+      <div class="grid-outer" *ngIf="q.type == 'grid-radio' && q.direction == 'columnwise' ">
+      
+        <ion-row>
+      
+          <ion-col col-4 class="columnhead">
+            <ion-label></ion-label>
+          </ion-col>
+      
+          <ion-col col-4 *ngFor="let x of q.columns"  class="columnhead">
+            <ion-label>{{x}}</ion-label>
+          </ion-col>
+      
+        </ion-row>
+      
+      
+          <ion-row *ngFor="let s of q.rows; let i = index">
+      
+            <ion-col col-4  class="rowhead">
+              <ion-label><span class="rowheadtext">{{data.rows[i]}}</span></ion-label>
+            </ion-col>
+      
+            <ion-col col-4 *ngFor="let t of q.columns">
+                <label class="grid-radio-label"><input type="radio" name={{t}}></label>
+            </ion-col>
+      
+          </ion-row>
+      
+      </div>
+
+      <div class="grid-outer" *ngIf="q.type == 'grid-checkbox' && ( q.direction == 'rowwise' || q.direction == 'columnwise' ) ">
+      
+        <ion-row>
+      
+          <ion-col col-4 class="columnhead">
+            <ion-label></ion-label>
+          </ion-col>
+      
+          <ion-col col-4 *ngFor="let x of q.columns" class="columnhead">
+            <ion-label>{{x}}</ion-label>
+          </ion-col>
+      
+        </ion-row>
+      
+      
+          <ion-row *ngFor="let c of q.rows; let i = index">
+      
+            <ion-col col-4 class="rowhead">
+              <ion-label><span class="rowheadtext">{{data.rows[i]}}</span></ion-label>
+            </ion-col>
+      
+            <ion-col col-4 *ngFor="let x of q.columns">
+                <label class="grid-radio-label"><input type="checkbox" name={{i}}></label>
+            </ion-col>
+      
+          </ion-row>
+      
+      </div>
+
+      <div class="grid-outer" *ngIf="q.type == 'grid-custom' && q.direction == 'rowwise' ">
+      
+        <ion-row>
+      
+          <ion-col col-4 class="columnhead">
+            <ion-label></ion-label>
+          </ion-col>
+      
+          <ion-col col-4 *ngFor="let x of q.columns" class="columnhead">
+            <ion-label>{{x}}</ion-label>
+          </ion-col>
+      
+        </ion-row>
+      
+      
+          <ion-row *ngFor="let c of q.rows; let i = index">
+      
+            <ion-col col-4 class="rowhead">
+              <ion-label><span class="rowheadtext">{{c.rowtitle}}</span></ion-label>
+            </ion-col>
+      
+            <ion-col col-4 *ngFor="let x of q.columns">
+                <label *ngIf="c.rowtype == 'checkbox' "><input type="checkbox" name={{i}}></label>
+                <label *ngIf="c.rowtype == 'radio' "><input type="radio" name={{i}}></label>
+                <label *ngIf="c.rowtype == 'text' ">
+                  <input type="text" name={{i}} style="max-width: 90px;">
+                </label>
+                <label *ngIf="c.rowtype == 'number' ">
+                  <input type="number" name={{i}} style="max-width: 90px;">
+                </label>
+                <label *ngIf="c.rowtype == 'dropdown' ">
+                  <ion-select interface="popover">
+                    <ion-select-option *ngFor="let opt of c.options">{{opt}}</ion-select-option>
+                  </ion-select>
+                </label>
+            </ion-col>
+      
+          </ion-row>
+      
+      </div>
+
+      <div class="grid-outer" *ngIf="q.type == 'grid-custom' && q.direction == 'columnwise' ">
+      
+        <ion-row>
+      
+          <ion-col col-4 class="columnhead">
+            <ion-label></ion-label>
+          </ion-col>
+      
+          <ion-col col-4 *ngFor="let x of q.columns" class="columnhead">
+            <ion-label>{{x.coltitle}}</ion-label>
+          </ion-col>
+      
+        </ion-row>
+      
+      
+          <ion-row *ngFor="let s of q.rows; let i = index">
+      
+            <ion-col col-4  class="rowhead">
+              <ion-label><span class="rowheadtext">{{q.rows[i]}}</span></ion-label>
+            </ion-col>
+      
+            <ion-col col-4 *ngFor="let t of q.columns">
+                <label *ngIf="t.coltype == 'checkbox' "><input type="checkbox" name={{t}}></label>
+                <label *ngIf="t.coltype == 'radio' "><input type="radio" name={{t}}></label>
+                <label *ngIf="t.coltype == 'text' ">
+                  <input type="text" name={{t}} style="max-width: 90px;">
+                </label>
+                <label *ngIf="t.coltype == 'number' ">
+                  <input type="number" name={{t}} style="max-width: 90px;">
+                </label>
+                <label *ngIf="t.coltype == 'dropdown' ">
+                  <ion-select interface="popover">
+                    <ion-select-option *ngFor="let opt of t.options">{{opt}}</ion-select-option>
+                  </ion-select>
+                </label>
+            </ion-col>
+      
+          </ion-row>
+
+        <button (click)="nextQuestion()">Next</button>
+      
+      </div>
+      
+    </ion-content> -->
+
+
+
+    <!-- <span *ngIf="data.type == 'checkbox' ">
+      <ion-col col-4 style="border: groove;" *ngFor="let x of data.columns">
+        <ion-item>
+          <ion-checkbox color="primary"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+    </span> -->
+
+      <!-- <ion-col col-4 style="border: groove;" ng-repeat="y in data.rows">
+        <ion-label>{{data.rows[5]}}</ion-label>
+      </ion-col> -->
+   
+      <!-- <ion-col col-4 style="border: groove;">
+        <ion-item>
+          <ion-label>Select</ion-label>
+          <ion-select interface="popover">
+            <ion-select-option value="nes">Helicopter</ion-select-option>
+            <ion-select-option value="n64">Aeroplane</ion-select-option>
+            <ion-select-option value="ps">Jet</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-4 style="border: groove; font-size: 32px;">
+        <ion-item>
+          <ion-input placeholder="Enter Input"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-4 style="border: groove;">
+        <ion-item>
+          <ion-label>Car</ion-label>
+          <ion-radio slot="start"></ion-radio>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-4 style="border: groove;">
+        <ion-item >
+          <ion-label>Bike</ion-label>
+          <ion-radio slot="start"></ion-radio>
+        </ion-item>
+      </ion-col>
+
+      <ion-col col-4 style="border: groove;">
+        <ion-item >
+          <ion-label>Scooty</ion-label>
+          <ion-radio slot="start"></ion-radio>
+        </ion-item>
+      </ion-col> -->
+
+
+
+
+      <!-- <ion-footer>
+        <ion-toolbar>
+          <ion-button slot="end" color="medium" routerLink="/image-page">Next <ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
+
+        </ion-toolbar>
+      </ion-footer> -->
+
+      <!-- <ion-footer>
+        <ion-toolbar>
+          <ion-button slot="end" color="medium" (click)="nextQuestion()">Next <ion-icon class="right-arrow" name="arrow-forward-outline"></ion-icon></ion-button>
+
+        </ion-toolbar>
+      </ion-footer> -->
+
+
+
+
+<!-- <ion-list>
+  <ion-radio-group>
+    <ion-list-header>
+      <ion-label>
+        Auto Manufacturers
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Cord</ion-label>
+      <ion-radio value="cord"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Duesenberg</ion-label>
+      <ion-radio value="duesenberg"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Hudson</ion-label>
+      <ion-radio value="hudson"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Packard</ion-label>
+      <ion-radio value="packard"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Studebaker</ion-label>
+      <ion-radio value="studebaker"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-list> -->
