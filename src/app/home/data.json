@@ -1,0 +1,89 @@
+{
+    "questions": [
+      {
+        "questiontext": "Q1. Choose as pr your requirements",
+        "type": "grid-custom",
+        "direction": "columnwise",
+        "columns": [
+          {
+            "coltitle": "One",
+            "coltype": "checkbox"
+          },
+          {
+            "coltitle": "Two",
+            "coltype": "text"
+          },
+          {
+            "coltitle": "Three",
+            "coltype": "radio"
+          },
+          {
+            "coltitle": "Four",
+            "coltype": "number"
+          },
+          {
+            "coltitle": "Five",
+            "coltype": "dropdown",
+            "options": ["Car", "bike", "scooty", "Jet"]
+          },
+          {
+            "coltitle": "Six",
+            "coltype": "dropdown",
+            "options": ["Car1", "bike1", "scooty1", "Jet1"]
+          }
+        ],
+        "rows": [
+          "January", 
+          "Febuary",
+          "March",
+          "April",
+          "May",
+          "June"
+        ]
+      },
+      {
+        "questiontext": "Q2. Choose as pr your requirements",
+        "type": "grid-custom",
+        "direction": "columnwise",
+        "columns": [
+          {
+            "coltitle": "One",
+            "coltype": "checkbox"
+          },
+          {
+            "coltitle": "Two",
+            "coltype": "text"
+          },
+          {
+            "coltitle": "Three",
+            "coltype": "radio"
+          },
+          {
+            "coltitle": "Four",
+            "coltype": "number"
+          },
+          {
+            "coltitle": "Five",
+            "coltype": "dropdown",
+            "options": ["Car", "bike", "scooty", "Jet"]
+          },
+          {
+           "coltitle": "Six",
+            "coltype": "dropdown",
+            "option": ["Car1", "bike1", "scooty1", "Jet1"]
+          }
+        ],
+        "rows": [
+          "January", 
+          "Febuary",
+          "March",
+          "April",
+          "May",
+          "June"
+        ]
+      }
+
+
+    ]
+
+  }

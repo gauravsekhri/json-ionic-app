@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "gh-pages": "ng build --base-href 'https://gauravsekhri.github.io/json-ionic-app/' && npx ngh --dir=www/"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +24,14 @@
     "@capacitor/core": "3.0.0",
     "@capacitor/haptics": "1.0.0",
     "@capacitor/keyboard": "1.0.0",
+    "@ionic-native/file": "^5.33.1",
+    "@ionic-native/ionic-webview": "^5.33.1",
     "@ionic/angular": "^5.5.2",
+    "angular-cli-ghpages": "^1.0.0-rc.2",
+    "cordova-plugin-file": "^6.0.2",
+    "cordova-plugin-ionic": "5.4.7",
+    "gh-pages": "^3.2.2",
+    "ionic-image-loader-v5": "^1.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
